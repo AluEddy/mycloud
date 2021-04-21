@@ -1,0 +1,28 @@
+server:
+  port: 7001
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}.${server.port}/eureka/
+
+
+eureka:
+  instance:
+    hostname: eureka7001.com         # 指定该Eureka实例的主机名
+    preferIpAddress: false
+  server:
+    #eureka自我保护机制 默认是打开的
+    enableSelfPreservation: false
+    #等待心跳包的时间ms
+    evictionIntervalTimerInMs: 30000
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+#      defaultZone:  http://eureka7002.com:7002/eureka/
+      defaultZone:  http://eureka7001.com:7001/eureka/
