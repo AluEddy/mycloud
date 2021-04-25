@@ -67,4 +67,9 @@ public class PayMentController {
         }
         return new CommonResult(200,"success==+serverPort:"+serverPort);
     }
+
+    @GetMapping("/payment/testZipkin")
+    public CommonResult testZipkin() {
+        return new CommonResult(200,"success==+testZipkin:"+serverPort);
+    }
 }

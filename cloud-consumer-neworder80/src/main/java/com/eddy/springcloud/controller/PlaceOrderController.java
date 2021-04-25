@@ -6,6 +6,7 @@ import com.eddy.springcloud.lb.LoadBlancer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -43,6 +44,11 @@ public class PlaceOrderController {
     @GetMapping("/consumer/payment/discovery")
     public Object discovery(){
         return restTemplate.getForObject(uri+"/payment/discovery", Object.class);
+    }
+
+    @GetMapping("/consumer/payment/testZipkin")
+    public Object testZipkin(){
+        return restTemplate.getForObject("http://localhost:8001"+"/payment/testZipkin", Object.class);
     }
 
     @GetMapping("/consumer/loadBlancer")
